@@ -6,12 +6,12 @@ TrajectoryPlannerROS:
   dwa: true
   vx_samples: 3
   vtheta_samples: 20
-  max_vel_x: 0.65
+  max_vel_x: 0.5
   min_vel_x: 0.1
   max_rotational_vel: 1.0
-  min_in_place_rotational_vel: 0.4
+  min_in_place_rotational_vel: 0.0
   xy_goal_tolerance: 0.1
-  yaw_goal_tolerance: 0.1
+  yaw_goal_tolerance: 0.05
   goal_distance_bias: 0.2
   path_distance_bias: .9
   occdist_scale: 0.01
@@ -21,8 +21,35 @@ TrajectoryPlannerROS:
   acc_lim_th: 3.2
   acc_lim_x: 2.5
   acc_lim_y: 2.5
-  heading_scoring: false
+  heading_scoring: true
   heading_scoring_timestep: 0.8
-  holonomic_robot: true
+  holonomic_robot: false
   simple_attractor: false
+DWAPlannerROS:
+  # Robot configuration parameters  
+  acc_lim_x: 2.5
+  acc_lim_y: 0
+  acc_lim_th: 3.2
 
+  goal_distance_bias: 0.2
+  path_distance_bias: .9
+
+  max_vel_x: 0.5
+  min_vel_x: -0.5
+  max_vel_y: 0
+  min_vel_y: 0
+
+  max_vel_trans: 0.5
+  min_vel_trans: 0.1
+  max_vel_theta: 1.0
+  min_vel_theta: -1.0
+
+  # Goal Tolerance Parameters
+  yaw_goal_tolerance: 0.05
+  xy_goal_tolerance: 0.1
+  latch_xy_goal_tolerance: false
+
+
+  twirling_scale: 0.1
+  max_turning_radian: 0.348
+  wheelbase: 0.33
