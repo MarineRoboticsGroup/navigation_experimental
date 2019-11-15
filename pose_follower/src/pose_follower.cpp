@@ -59,6 +59,10 @@ namespace pose_follower {
 
     //set this to true if you're using a holonomic robot
     node_private.param("holonomic", holonomic_, true);
+    ROS_INFO("pose_follower node name is %s", name.c_str());
+    if(holonomic_){
+      ROS_INFO("Warning: this robot is set to be holonomic!");
+    }
 
     global_plan_pub_ = node_private.advertise<nav_msgs::Path>("global_plan", 1);
 
